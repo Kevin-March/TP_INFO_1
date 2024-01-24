@@ -1,0 +1,26 @@
+digraph PDA {
+	q0 [label=q0 color=green shape=triangle style=filled]
+	q1 [label=q1 color=blue shape=circle style=bold]
+	q2 [label=q2 color=blue shape=circle style=bold]
+	q0 -> q0 [label="a,Z;AZ
+b,Z;BZ
+a,A;AA
+a,B;AB
+b,A;BA
+b,B;BB"]
+	q0 -> q1 [label="e,A;A
+e,B;B"]
+	q1 -> q1 [label="a,A;e
+b,B;e"]
+	q1 -> q2 [label="e,Z;Z"]
+	q2 [label=q2 color=red peripheries=2 shape=doublecircle]
+	label="El estado en verde es el estado inicial
+Los estados en rojo son los estados finales
+P = (Q, Σ, Γ, δ, q0, Z, F)
+Q = {q2, q1, q0}
+Σ = {a, b}
+Γ = {A, B, Z}
+q0 = q0
+Z = Z
+F = {q2}"
+}
