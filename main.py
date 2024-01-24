@@ -76,7 +76,7 @@ def generar_pda():
 
     # Solicitar los estados finales
     estados_finales = input("Ingrese los estados finales separados por comas (ejemplo: q1,q2): ").split(',')
-    print('estados finales: ', estados_finales)
+
 
     # Agregar estados finales
     for estado_final in estados_finales:
@@ -89,7 +89,7 @@ def generar_pda():
     # Eliminar duplicados convirtiendo la lista a un conjunto
     nombres_nodos_unicos = list(set(nombres_nodos))
     # Agregar texto adicional
-    print(nombres_nodos_unicos)
+
     pda.attr(label=f'El estado en verde es el estado inicial\nLos estados en rojo son los estados finales\n'
                    f'PDA(final_state) = (Q, Σ, Γ, δ, q0, Z, F)\n'
                    f'Q = {{{", ".join(nombres_nodos_unicos)}}}\n'
@@ -110,8 +110,6 @@ def generar_pda():
     generar_empty_stack(pda_file_name, estado_inicial, estados_finales,nombres_nodos_unicos,alfabeto_pda,alfabeto_pila)
     
 def generar_empty_stack(pda_file_name, estado_inicial, estados_finales,nombres_nodos_unicos,alfabeto_pda,alfabeto_pila):
-    print(estado_inicial)
-    print(estados_finales)
     # Cargar el grafo desde el archivo DOT original
     dot_file_path = f"{pda_file_name}.dot"
     pda_graph = pgv.AGraph(dot_file_path)
