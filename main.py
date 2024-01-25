@@ -121,18 +121,21 @@ def generar_empty_stack(pda_file_name, estado_inicial, estados_finales,nombres_n
 
     # Crear el objeto de diccionario para las propiedades de la transición
     propiedades_transicion_p0 = {
-        'label': 'e,X;XZ'
+        'label': 'e,X;ZX'
     }
     
     propiedades_transicion_p = {
         'label': 'e,Z;e'
+    }
+    propiedades_transicion_pf = {
+        'label': 'e,X;e'
     }
 
     # Agregar el nuevo nodo y la transición al grafo
     pda_graph.add_node(nuevo_nodo_p0, color='green', style='filled', shape='triangle', label=nuevo_nodo_p0)
     pda_graph.add_edge('p0', nuevo_estado_destino, **propiedades_transicion_p0)
     pda_graph.add_node(nuevo_nodo_p, color='blue', style='bold', shape='circle', label=nuevo_nodo_p)
-    
+    pda_graph.add_edge(nuevo_nodo_p, nuevo_nodo_p, **propiedades_transicion_pf)
     for estado_final in estados_finales:
         pda_graph.add_edge(estado_final, nuevo_nodo_p, **propiedades_transicion_p)
     # Cambiar el estilo del nodo con el nombre del estado inicial a un círculo azul
